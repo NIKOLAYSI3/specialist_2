@@ -10,6 +10,12 @@ public class App {
 	public static void main(String[] args) throws CloneNotSupportedException, IOException {
 		// Лабораторная работа №11
 		// Выводим в консоль что за объект
+		
+		ArrayList<String> person = new ArrayList<String>();
+		
+		person.add("Nikolay");
+		person.add("Sergey");
+		
 
 		Scene sc = Scene.getInstance();
 		
