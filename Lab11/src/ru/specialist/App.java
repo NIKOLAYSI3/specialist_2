@@ -4,21 +4,23 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class App {
 
 	public static void main(String[] args) throws CloneNotSupportedException, IOException {
 		// Лабораторная работа №11
-		// Выводим в консоль что за объект
 		
-		ArrayList<String> person = new ArrayList<String>();
-		
-		person.add("Nikolay");
-		person.add("Sergey");
+		Subskriber firstsubskriber = new Subskriber();
+		Subskriber secondsubskriber = new Subskriber();
+		firstsubskriber.name = "Nikolay";
+		secondsubskriber.name = "Sergey";
 		
 
 		Scene sc = Scene.getInstance();
 		
+		sc.addObserver(firstsubskriber);
+		sc.addObserver(secondsubskriber);
 		
 		sc.add(new Point(12, 20, "Grey"));
 		sc.add(new Cirlce(13, 30, 33, "Red"));
@@ -53,7 +55,7 @@ public class App {
 		sc.sort();
 		sc.draw();
 		
-		sc.save("../testLab8.json");
+	//	sc.save("../testLab8.json");
 		
 	}
 

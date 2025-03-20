@@ -1,6 +1,7 @@
 package ru.specialist;
 
 abstract class Shape implements Comparable<Shape>{
+	
 
 	private String color;
 

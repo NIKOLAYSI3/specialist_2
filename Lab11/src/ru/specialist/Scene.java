@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 
-public class Scene implements Serializable {
+public class Scene implements Serializable, Observed {
 
 	// описание паттерна singleton
 	  private static final Scene INSTANCE = new Scene();
@@ -32,6 +32,7 @@ public class Scene implements Serializable {
 	
 	  public void add(Shape sh) { 
 		shapeMass.add(sh); 
+		notifyObservers();
 		  }
 	 
 
@@ -42,7 +43,7 @@ public class Scene implements Serializable {
 
 	
 	  public void sort() { 
-		Collections.sort(shapeMass);  
+		Collections.sort(shapeMass);
 	  }
 	 
 
@@ -71,6 +72,21 @@ public class Scene implements Serializable {
 			writer.println(']');
 
 		}
+	}
+
+	
+	ArrayList<Observer> subskribers = new ArrayList<Observer>();
+	
+	@Override
+	public void addObserver(Observer observer) {
+		this.subskribers.add(observer);		
+	}
+
+	
+	@Override
+	public void notifyObservers() {
+		for(Observer obs : subskribers)
+			obs.handleEvent(shapeMass.toString().lines().toList());
 	}
 
 }

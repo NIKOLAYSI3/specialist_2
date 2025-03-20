@@ -75,4 +75,9 @@ public class Point extends Shape{
 				this.getColor().equals(other.getColor());
 	}
 
+	@Override
+	public String toString() {
+		return "Point";
+	}
+	
 }
